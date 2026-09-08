@@ -348,7 +348,7 @@
    ========================================================================= */
 var CONFIG = {
   seasonStart: "2026-09-07",
-  seasonEnd:   "2027-02-27",
+  seasonEnd:   "2027-03-21",
 
   // ==========================================================================
   // SHOULDER STATUS — active shoulder impingement / bicep tendonitis, in rehab
@@ -357,6 +357,8 @@ var CONFIG = {
   // update clearance below. His actual rehab work stays separate from this
   // plan — nothing here replaces or duplicates it.
   // clearance must be exactly one of: "not-cleared", "partially-cleared", "fully-cleared"
+  // Once cleared, real pressing work should be added to Wednesday — see the
+  // note on each Wednesday day below.
   // ==========================================================================
   shoulderStatus: {
     clearance: "not-cleared",
@@ -368,37 +370,48 @@ var CONFIG = {
   },
 
   // ==========================================================================
-  // CALENDAR NOTE: Levi swims for an Indiana high school, not Ohio — his
-  // championship season lands about a month earlier than the shared team
-  // calendar. Phases and meets below are built around HIS actual season,
-  // not copied from the shared team calendar.
-  // He does not practice with the team November through late February —
-  // he still follows these lifting phases independently during that time.
-  // Only his 2 known championship meets are entered below (Sectionals, State).
-  // Add his regular in-season meets once you have those dates.
+  // CALENDAR NOTE: Levi shares the team's meet calendar through Fort Wayne
+  // Invite. He's then away from the team (not practicing with us) through
+  // his own Indiana high school Sectionals and State — still follows these
+  // lifting phases independently that whole stretch. After State, he rejoins
+  // for Senior Champs and the team's own Sectionals in March.
+  // Because his championship stretch (his State through the team's
+  // Sectionals) is one continuous run of closely-spaced meets, Phase 3 stays
+  // in the lower-volume/power mode across all of it rather than trying to
+  // rebuild and re-taper in between each one.
   // ==========================================================================
   phaseBlocks: [
     {phase:1, start:"2026-09-07", end:"2026-10-25", label:"Phase 1: Foundation",      blurb:"Build the base — legs, pulling, and real core work, kept shoulder-safe."},
     {phase:2, start:"2026-10-26", end:"2027-01-03", label:"Phase 2: Strength",         blurb:"Reps down, load up. You're on your own during this stretch — the plan doesn't change."},
-    {phase:3, start:"2027-01-04", end:"2027-02-27", label:"Phase 3: Power / Taper",    blurb:"Lower volume, more explosive intent — timed to peak for Sectionals and State, not the Ohio team's March meets."}
+    {phase:3, start:"2027-01-04", end:"2027-03-21", label:"Phase 3: Power / Taper",    blurb:"Lower volume, more explosive intent — this covers your whole championship stretch, from Indiana State through the team's Sectionals."}
   ],
 
   meets: [
+    {start:"2026-10-04", end:"2026-10-04", label:"CAC Pentathlon"},
+    {start:"2026-10-17", end:"2026-10-17", label:"Tri Meet"},
+    {start:"2026-10-23", end:"2026-10-25", label:"WTRC Meet"},
+    {start:"2026-11-06", end:"2026-11-08", label:"Fort Wayne Invite"},
     {start:"2027-02-18", end:"2027-02-20", label:"IHSAA Sectionals"},
-    {start:"2027-02-25", end:"2027-02-26", label:"IHSAA State"}
+    {start:"2027-02-25", end:"2027-02-26", label:"IHSAA State"},
+    {start:"2027-03-04", end:"2027-03-07", label:"Makos Senior Champs"},
+    {start:"2027-03-18", end:"2027-03-21", label:"Sectionals"}
   ],
 
   tapers: [
-    {start:"2027-02-15", end:"2027-02-17", label:"Taper: Sectionals"},
-    {start:"2027-02-23", end:"2027-02-24", label:"Taper: State"}
+    {start:"2026-11-04", end:"2026-11-05", label:"Taper: Fort Wayne Invite"},
+    {start:"2027-02-15", end:"2027-02-17", label:"Taper: IHSAA Sectionals"},
+    {start:"2027-02-23", end:"2027-02-24", label:"Taper: IHSAA State"}
   ],
 
   liftOverrides: [
-    {start:"2027-02-18", end:"2027-02-20", mode:"no-lift", label:"No Lift — Sectionals"},
-    {start:"2027-02-25", end:"2027-02-26", mode:"no-lift", label:"No Lift — State"}
+    {start:"2026-10-23", end:"2026-10-23", mode:"no-lift", label:"No Lift — WTRC Meet"},
+    {start:"2026-11-06", end:"2026-11-06", mode:"no-lift", label:"No Lift — Fort Wayne Invite"},
+    {start:"2027-02-18", end:"2027-02-20", mode:"no-lift", label:"No Lift — IHSAA Sectionals"},
+    {start:"2027-02-25", end:"2027-02-26", mode:"no-lift", label:"No Lift — IHSAA State"},
+    {start:"2027-03-05", end:"2027-03-05", mode:"no-lift", label:"No Lift — Senior Champs"}
   ],
 
-  hsChampionships: "Only Sectionals and State are entered — add regular in-season meets once you have the schedule.",
+  hsChampionships: "Full schedule now entered — shared meets through Fort Wayne, his own Indiana Sectionals/State, then Senior Champs and the team's Sectionals.",
   athleteName: "Levi",
 
   program: {
@@ -411,10 +424,10 @@ var CONFIG = {
         {type:"sets", name:"Calf Raises", sets:["10","10"], rest:"60 sec", cue:"Full range, controlled."},
         {type:"sets", name:"Pallof Press", sets:["8/side","8/side"], rest:"45 sec", cue:"Real core work — this is what builds the body position you're after."}
       ]},
-      wed: {label:"Pull + Core", note:"No heavy pushing right now, so this day leans hard into pulling — which you already enjoy, and which is generally kind to a shoulder like yours. Your actual rehab work stays separate from this and keeps happening on its own schedule.", exercises:[
+      wed: {label:"Pull + Core", note:"No heavy pushing right now, so this day leans hard into pulling — which you already enjoy, and which is generally kind to a shoulder like yours. Your actual rehab work stays separate from this and keeps happening on its own schedule. Once your coach updates your shoulder clearance, real pressing work gets added back into this day — not before.", exercises:[
         {type:"pullup", name:"Assisted Pull-Ups", sets:3, rest:"90 sec", cue:"Full range, controlled tempo."},
         {type:"sets", name:"Chest-Supported Row", sets:["10","10","10"], rest:"75 sec", cue:"Squeeze your shoulder blades together at the top."},
-        {type:"sets", name:"Shrugs", sets:["12","12"], rest:"60 sec", cue:"Controlled, full range — no bouncing."},
+        {type:"sets", name:"Prone Y-Raise", sets:["12","12"], rest:"60 sec", cue:"Light or bodyweight only — this supports healthy shoulder mechanics, the opposite of aggravating it."},
         {type:"sets", name:"Face Pulls", sets:["12","12"], rest:"60 sec", cue:"Light load, controlled — shoulder-friendly by design."},
         {type:"sets", name:"Hanging Knee Raise", sets:["10","10"], rest:"45 sec", cue:"Controlled — no swinging."}
       ]},
@@ -434,10 +447,10 @@ var CONFIG = {
         {type:"sets", name:"Calf Raises", sets:["8-10","8-10"], rest:"60 sec", cue:"Full range, add weight gradually."},
         {type:"sets", name:"Pallof Press", sets:["8/side","8/side"], rest:"45 sec", cue:"Core work stays a priority, not an afterthought."}
       ]},
-      wed: {label:"Pull + Core", note:"Same principle as Phase 1 — heavier pulling, still zero heavy pushing. This doesn't change until your shoulder status is updated.", exercises:[
+      wed: {label:"Pull + Core", note:"Same principle as Phase 1 — heavier pulling, still zero heavy pushing. This doesn't change until your shoulder status is updated — once it is, pressing gets layered back into this day.", exercises:[
         {type:"pullup", name:"Assisted Pull-Ups", sets:3, rest:"90 sec", cue:"Try slightly less assistance where you can."},
         {type:"sets", name:"Chest-Supported Row", sets:["8","8","8"], rest:"75 sec", cue:"Heavier, controlled — strong upper-back squeeze."},
-        {type:"sets", name:"Shrugs", sets:["10","10"], rest:"60 sec", cue:"Controlled, heavier."},
+        {type:"sets", name:"Prone Y-Raise", sets:["10","10"], rest:"60 sec", cue:"Still light, still controlled — this isn't a strength exercise, it's shoulder-health work."},
         {type:"sets", name:"Face Pulls", sets:["12","12"], rest:"60 sec", cue:"Light load, controlled."},
         {type:"sets", name:"Hanging Knee Raise", sets:["10","10"], rest:"45 sec", cue:"Controlled — no swinging."}
       ]},
@@ -456,7 +469,7 @@ var CONFIG = {
         {type:"sets", name:"Calf Raises", sets:["8","8"], rest:"60 sec", cue:"Powerful up, controlled down."},
         {type:"sets", name:"Pallof Press", sets:["8/side","8/side"], rest:"45 sec", cue:"Core work stays in, even in a shorter phase."}
       ]},
-      wed: {label:"Pull + Core", note:"Shorter session, same shoulder rule — this doesn't change without an update from your medical team.", exercises:[
+      wed: {label:"Pull + Core", note:"Shorter session, same shoulder rule — this doesn't change without an update from your medical team. Once cleared, this is where pressing work returns, even in this leaner phase.", exercises:[
         {type:"pullup", name:"Assisted Pull-Ups", sets:2, rest:"90 sec", cue:"Least assistance that still gives you clean reps."},
         {type:"sets", name:"Chest-Supported Row", sets:["6","6"], rest:"75 sec", cue:"Strong, controlled reps."},
         {type:"sets", name:"Face Pulls", sets:["10","10"], rest:"60 sec", cue:"Light load, controlled — stays in every phase."}
